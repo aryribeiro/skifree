@@ -68,12 +68,16 @@ assert.equal(downhillAccelerationFactor(PLAYER_STATE.STRAIGHT), 1);
 assert.equal(downhillAccelerationFactor(PLAYER_STATE.LEFT_1), 0.62);
 assert.equal(downhillAccelerationFactor(PLAYER_STATE.RIGHT_2), 0.28);
 assert.equal(downhillAccelerationFactor(PLAYER_STATE.HARD_LEFT), 0);
-for (const language of ["en-US", "pt-BR"]) {
+for (const language of ["en-US", "pt-BR", "es-ES"]) {
   assert.ok(html.includes(`data-language="${language}"`), `missing language button: ${language}`);
 }
 for (const englishText of ["High Scores", "Freestyle", "The Yeti got you", "Failed to load"]) {
   assert.ok(source.includes(englishText), `missing English translation: ${englishText}`);
 }
+for (const spanishText of ["Récords", "Estilo libre", "El Yeti te atrapó", "Error al cargar"]) {
+  assert.ok(source.includes(spanishText), `missing Spanish translation: ${spanishText}`);
+}
+assert.ok(source.includes('SPANISH_COUNTRIES.has(code)'));
 assert.ok(source.includes('const LANGUAGE_STORAGE_KEY = "skifree-language"'));
 assert.ok(source.includes('new URL("api/country", window.location.href)'));
 assert.ok(worker.includes('url.pathname === "/api/country"'));
@@ -107,4 +111,4 @@ assert.ok(
   "handled keyboard input must reclaim control from the pointer"
 );
 
-console.log("Verified recovered rules, 86 assets, crash recovery, mobile gestures, and bilingual locale selection without a browser.");
+console.log("Verified recovered rules, 86 assets, crash recovery, mobile gestures, and trilingual locale selection without a browser.");

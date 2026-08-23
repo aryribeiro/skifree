@@ -8,7 +8,7 @@ geração de objetos, os controles e os comportamentos de colisão recuperados d
 `SKI.EXE`. A renderização continua ortográfica e fiel ao pixel, com o Three.js
 cuidando da cena.
 
-Bilíngue (português do Brasil e inglês): o idioma inicial é sugerido pelo país
+Trilíngue (português do Brasil, inglês e espanhol): o idioma inicial é sugerido pelo país
 do visitante e pode ser trocado a qualquer momento pelas bandeiras no canto
 superior esquerdo.
 

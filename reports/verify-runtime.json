@@ -11,7 +11,7 @@
         "title": "SkiFree",
         "ready": true,
         "paused": false,
-        "hudText": "SkiFree\nTempo:\n0:00:01.06\nDist.:\n15m\nVeloc.:\n15m/s\nEstilo:\n0\n\npor Ary Ribeiro",
+        "hudText": "SkiFree\nTempo:\n0:00:01.04\nDist.:\n15m\nVeloc.:\n15m/s\nEstilo:\n0\n\npor Ary Ribeiro",
         "canvas": {
           "cssWidth": 1280,
           "cssHeight": 720,
@@ -48,9 +48,9 @@
         ]
       },
       "pixels": {
-        "nonSnow": 14669,
+        "nonSnow": 15288,
         "total": 921600,
-        "ratio": 0.015916883680555556
+        "ratio": 0.016588541666666668
       }
     },
     {
@@ -63,7 +63,7 @@
         "title": "SkiFree",
         "ready": true,
         "paused": false,
-        "hudText": "SkiFree\nTempo:\n0:00:01.06\nDist.:\n15m\nVeloc.:\n15m/s\nEstilo:\n0\n\npor Ary Ribeiro",
+        "hudText": "SkiFree\nTempo:\n0:00:01.09\nDist.:\n16m\nVeloc.:\n15m/s\nEstilo:\n0\n\npor Ary Ribeiro",
         "canvas": {
           "cssWidth": 390,
           "cssHeight": 844,
@@ -100,9 +100,9 @@
         ]
       },
       "pixels": {
-        "nonSnow": 15377,
+        "nonSnow": 16289,
         "total": 329160,
-        "ratio": 0.04671588285332361
+        "ratio": 0.04948657187993681
       }
     }
   ]

@@ -83,7 +83,11 @@ const RIVAL_KIND = "rival-player";
 const RIVAL_COUNT = 3;
 const LANGUAGE_STORAGE_KEY = "skifree-language";
 const DEFAULT_LANGUAGE = "en-US";
-const SUPPORTED_LANGUAGES = new Set(["pt-BR", "en-US"]);
+const SUPPORTED_LANGUAGES = new Set(["pt-BR", "en-US", "es-ES"]);
+const SPANISH_COUNTRIES = new Set([
+  "ES", "MX", "AR", "CO", "CL", "PE", "VE", "EC", "GT", "CU", "BO", "DO", "HN",
+  "PY", "SV", "NI", "CR", "PA", "UY", "GQ", "PR"
+]);
 
 const TRANSLATIONS = Object.freeze({
   "pt-BR": {
@@ -169,6 +173,48 @@ const TRANSLATIONS = Object.freeze({
       treeSlalom: ["TREE", "SLALOM"],
       freestyle: ["FREE", "STYLE"]
     }
+  },
+  "es-ES": {
+    languageSwitcherAria: "Seleccionar idioma",
+    hudAria: "Estado de SkiFree",
+    resultsAria: "Récords",
+    timeLabel: "Tiempo:",
+    distanceLabel: "Dist.:",
+    speedLabel: "Veloc.:",
+    styleLabel: "Estilo:",
+    paused: "Pausado",
+    records: "Récords",
+    resultHint: "Toca la pantalla o pulsa Enter para continuar",
+    loading: "Cargando",
+    loadFailed: "Error al cargar",
+    credit: "por",
+    style: "estilo",
+    flag: "Puerta",
+    points: "{value} estilo",
+    yourResult: "¡tu resultado!",
+    tryAgain: "¡inténtalo de nuevo!",
+    courseRace: "Carrera",
+    courseFreestyle: "Estilo libre",
+    courseTreeSlalom: "Eslalon entre árboles",
+    courseStarted: "Prueba iniciada: {mode}",
+    courseFinishedStyle: "Prueba completada — {mode}: {value} estilo",
+    courseFinishedTime: "Prueba completada — {mode}: {value}",
+    resultsTitle: "SkiFree - Resultados de {mode}",
+    yetiCaught: "El Yeti te atrapó",
+    yetiTitle: "SkiFree - El Yeti te atrapó",
+    pausedTitle: "Ski en pausa — pulsa F3 para continuar",
+    rivalNames: ["ZorroNieve", "Mika", "ByteHielo", "AsAlpino"],
+    signs: {
+      helpMouse: ["RATÓN/TOQUE", "MUEVE PARA", "GIRAR"],
+      helpKeys: ["A/D, FLECHAS", "O NUMPAD", "PARA GIRAR"],
+      startLeft: ["← SALIDA"],
+      startRight: ["SALIDA →"],
+      finishLeft: ["← META"],
+      finishRight: ["META →"],
+      race: ["CARRERA"],
+      treeSlalom: ["ESLALON", "ÁRBOLES"],
+      freestyle: ["ESTILO", "LIBRE"]
+    }
   }
 });
 
@@ -190,6 +236,20 @@ function storedLanguage() {
   }
 }
 
+function browserSuggestedLanguage() {
+  if (browserSuggestsBrazil()) return "pt-BR";
+  const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  if (languages.some((language) => language?.toLowerCase().startsWith("es"))) return "es-ES";
+  return DEFAULT_LANGUAGE;
+}
+
+function languageForCountry(country) {
+  const code = country.toUpperCase();
+  if (code === "BR") return "pt-BR";
+  if (SPANISH_COUNTRIES.has(code)) return "es-ES";
+  return DEFAULT_LANGUAGE;
+}
+
 function browserSuggestsBrazil() {
   const languages = navigator.languages?.length ? navigator.languages : [navigator.language];
   if (languages.some((language) => language?.toLowerCase() === "pt-br")) return true;
@@ -207,7 +267,7 @@ async function detectInitialLanguage() {
   const selected = storedLanguage();
   if (selected) return selected;
   if (["localhost", "127.0.0.1", "::1"].includes(window.location.hostname)) {
-    return browserSuggestsBrazil() ? "pt-BR" : "en-US";
+    return browserSuggestedLanguage();
   }
 
   const controller = new AbortController();
@@ -219,14 +279,14 @@ async function detectInitialLanguage() {
     });
     if (response.ok && response.headers.get("content-type")?.includes("application/json")) {
       const { country } = await response.json();
-      if (country) return country.toUpperCase() === "BR" ? "pt-BR" : "en-US";
+      if (country) return languageForCountry(country);
     }
   } catch {
     // Local development has no edge country signal; browser hints are the fallback.
   } finally {
     window.clearTimeout(timeout);
   }
-  return browserSuggestsBrazil() ? "pt-BR" : "en-US";
+  return browserSuggestedLanguage();
 }
 
 const COURSE_LANES = Object.freeze({
@@ -2107,7 +2167,14 @@ class SkiFreeGame {
     context.lineWidth = 1;
     if (!isHelp) context.strokeRect(0.5, 0.5, width - 1, panelHeight - 1);
     context.fillStyle = "#174f9e";
-    context.font = `bold ${isHelp ? 7 : lines.length > 1 ? 7 : 8}px Arial`;
+    const baseFontSize = isHelp ? 7 : lines.length > 1 ? 7 : 8;
+    const maxLineWidth = width - (isHelp ? 2 : 6);
+    let fontSize = baseFontSize;
+    context.font = `bold ${fontSize}px Arial`;
+    while (fontSize > 5 && lines.some((line) => context.measureText(line).width > maxLineWidth)) {
+      fontSize -= 0.5;
+      context.font = `bold ${fontSize}px Arial`;
+    }
     context.textAlign = "center";
     context.textBaseline = "middle";
     const lineHeight = isHelp ? 9 : 8;
