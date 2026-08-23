@@ -11,7 +11,7 @@
         "title": "SkiFree",
         "ready": true,
         "paused": false,
-        "hudText": "SkiFree\nTempo:\n0:00:01.01\nDist.:\n14m\nVeloc.:\n15m/s\nEstilo:\n0",
+        "hudText": "SkiFree\nTempo:\n0:00:01.06\nDist.:\n15m\nVeloc.:\n15m/s\nEstilo:\n0\n\npor Ary Ribeiro",
         "canvas": {
           "cssWidth": 1280,
           "cssHeight": 720,
@@ -23,7 +23,7 @@
           "left": 1102,
           "right": 1270,
           "top": 10,
-          "bottom": 119.25
+          "bottom": 147.25
         },
         "viewport": {
           "width": 1280,
@@ -48,9 +48,9 @@
         ]
       },
       "pixels": {
-        "nonSnow": 12747,
+        "nonSnow": 14669,
         "total": 921600,
-        "ratio": 0.013831380208333334
+        "ratio": 0.015916883680555556
       }
     },
     {
@@ -63,7 +63,7 @@
         "title": "SkiFree",
         "ready": true,
         "paused": false,
-        "hudText": "SkiFree\nTempo:\n0:00:01.01\nDist.:\n14m\nVeloc.:\n15m/s\nEstilo:\n0",
+        "hudText": "SkiFree\nTempo:\n0:00:01.06\nDist.:\n15m\nVeloc.:\n15m/s\nEstilo:\n0\n\npor Ary Ribeiro",
         "canvas": {
           "cssWidth": 390,
           "cssHeight": 844,
@@ -75,7 +75,7 @@
           "left": 232,
           "right": 384,
           "top": 6,
-          "bottom": 112
+          "bottom": 140
         },
         "viewport": {
           "width": 390,
@@ -100,9 +100,9 @@
         ]
       },
       "pixels": {
-        "nonSnow": 16256,
+        "nonSnow": 15377,
         "total": 329160,
-        "ratio": 0.04938631668489488
+        "ratio": 0.04671588285332361
       }
     }
   ]

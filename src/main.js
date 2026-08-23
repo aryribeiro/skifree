@@ -99,6 +99,7 @@ const TRANSLATIONS = Object.freeze({
     resultHint: "Toque na tela ou pressione Enter para continuar",
     loading: "Carregando",
     loadFailed: "Falha ao carregar",
+    credit: "por",
     style: "estilo",
     flag: "Bandeira",
     points: "{value} estilo",
@@ -140,6 +141,7 @@ const TRANSLATIONS = Object.freeze({
     resultHint: "Tap the screen or press Enter to continue",
     loading: "Loading",
     loadFailed: "Failed to load",
+    credit: "by",
     style: "Style",
     flag: "Gate",
     points: "{value} points",
@@ -2296,6 +2298,7 @@ class SkiFreeGame {
   }
 
   onPointerDown(event) {
+    if (event.target.closest?.(".hud-credit a")) return;
     if (this.closeCourseResults()) return;
     if (this.gameOver || this.yetiAttack.finished) {
       this.restart();
