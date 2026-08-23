@@ -126,7 +126,7 @@ async function inspectPage(page, viewportName) {
     || state.effects.snowFieldHeight < state.viewport.height) {
     throw new Error(`${viewportName}: snow field does not cover the viewport`);
   }
-  if (!state.hudText.includes("Tempo:") || !state.hudText.includes("Aura:")) {
+  if (!state.hudText.includes("Tempo:") || !state.hudText.includes("Estilo:")) {
     throw new Error(`${viewportName}: HUD text missing expected status rows`);
   }
   if (state.hud.right > state.viewport.width || state.hud.bottom > state.viewport.height) {
@@ -324,7 +324,7 @@ async function verifyModernEffects(page) {
   if (result.snowCount < 300 || result.snowFieldWidth < 800 || result.snowFieldHeight < 600) {
     throw new Error(`snow system is undersized: ${JSON.stringify(result)}`);
   }
-  if (result.styleAfter !== result.styleBefore + 9 || result.popupText !== "+ aura" || result.popupCount < 1) {
+  if (result.styleAfter !== result.styleBefore + 9 || result.popupText !== "+9 Trick" || result.popupCount < 1) {
     throw new Error(`style feedback did not appear: ${JSON.stringify(result)}`);
   }
   if (!(result.shadowOpacity > 0 && result.shadowOpacity < 0.2)) {

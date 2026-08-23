@@ -61,7 +61,7 @@ const source = await readFile(path.join(root, "src", "main.js"), "utf8");
 const html = await readFile(path.join(root, "index.html"), "utf8");
 const worker = await readFile(path.join(root, "worker", "index.js"), "utf8");
 assert.ok(html.includes('<html lang="pt-BR">'));
-for (const localizedText of ["Tempo:", "Dist.:", "Veloc.:", "Aura:", "Pausado", "Recordes", "Carregando"]) {
+for (const localizedText of ["Tempo:", "Dist.:", "Veloc.:", "Estilo:", "Pausado", "Recordes", "Carregando"]) {
   assert.ok(html.includes(localizedText), `missing pt-BR interface text: ${localizedText}`);
 }
 assert.equal(downhillAccelerationFactor(PLAYER_STATE.STRAIGHT), 1);

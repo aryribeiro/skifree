@@ -93,22 +93,22 @@ const TRANSLATIONS = Object.freeze({
     timeLabel: "Tempo:",
     distanceLabel: "Dist.:",
     speedLabel: "Veloc.:",
-    styleLabel: "Aura:",
+    styleLabel: "Estilo:",
     paused: "Pausado",
     records: "Recordes",
     resultHint: "Toque na tela ou pressione Enter para continuar",
     loading: "Carregando",
     loadFailed: "Falha ao carregar",
-    style: "aura",
+    style: "estilo",
     flag: "Bandeira",
-    points: "{value} aura",
+    points: "{value} estilo",
     yourResult: "seu resultado!",
     tryAgain: "tente novamente!",
     courseRace: "Corrida",
-    courseFreestyle: "Aura livre",
+    courseFreestyle: "Estilo livre",
     courseTreeSlalom: "Slalom entre árvores",
     courseStarted: "Prova iniciada: {mode}",
-    courseFinishedStyle: "Prova concluída — {mode}: {value} aura",
+    courseFinishedStyle: "Prova concluída — {mode}: {value} estilo",
     courseFinishedTime: "Prova concluída — {mode}: {value}",
     resultsTitle: "SkiFree - Resultados de {mode}",
     yetiCaught: "O Yeti pegou você",
@@ -124,7 +124,7 @@ const TRANSLATIONS = Object.freeze({
       finishRight: ["FIM →"],
       race: ["CORRIDA"],
       treeSlalom: ["SLALOM", "ÁRVORES"],
-      freestyle: ["AURA", "LIVRE"]
+      freestyle: ["ESTILO", "LIVRE"]
     }
   },
   "en-US": {
@@ -764,7 +764,7 @@ class SkiFreeGame {
     if (points <= 0 || !this.styleEffects) return;
     const effect = document.createElement("div");
     effect.className = "style-popup";
-    effect.textContent = this.language === "pt-BR" ? "+ aura" : `+${Math.floor(points)} ${label}`;
+    effect.textContent = `+${Math.floor(points)} ${label}`;
     effect.style.setProperty("--drift", `${Math.round((Math.random() - 0.5) * 54)}px`);
     this.styleEffects.append(effect);
     effect.addEventListener("animationend", () => effect.remove(), { once: true });
