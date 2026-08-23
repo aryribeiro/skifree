@@ -1,0 +1,109 @@
+{
+  "url": "http://127.0.0.1:5174/",
+  "results": [
+    {
+      "viewport": {
+        "name": "desktop",
+        "width": 1280,
+        "height": 720
+      },
+      "state": {
+        "title": "SkiFree",
+        "ready": true,
+        "paused": false,
+        "hudText": "SkiFree\nTempo:\n0:00:01.03\nDist.:\n15m\nVeloc.:\n15m/s\nAura:\n0",
+        "canvas": {
+          "cssWidth": 1280,
+          "cssHeight": 720,
+          "width": 1280,
+          "height": 720,
+          "simulationFps": "60"
+        },
+        "hud": {
+          "left": 1102,
+          "right": 1270,
+          "top": 10,
+          "bottom": 119.25
+        },
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "webgl": true,
+        "effects": {
+          "cameraPerspective": false,
+          "cameraOrthographic": true,
+          "cameraMode": "orthographic-2d",
+          "cameraDepthRange": 0,
+          "snowParticles": 360,
+          "snowFieldWidth": 1536,
+          "snowFieldHeight": 864,
+          "skiTrackMaxSegments": 900
+        },
+        "centerPixel": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "pixels": {
+        "nonSnow": 13308,
+        "total": 921600,
+        "ratio": 0.014440104166666667
+      }
+    },
+    {
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "state": {
+        "title": "SkiFree",
+        "ready": true,
+        "paused": false,
+        "hudText": "SkiFree\nTempo:\n0:00:01.01\nDist.:\n14m\nVeloc.:\n15m/s\nAura:\n0",
+        "canvas": {
+          "cssWidth": 390,
+          "cssHeight": 844,
+          "width": 390,
+          "height": 844,
+          "simulationFps": "60"
+        },
+        "hud": {
+          "left": 232,
+          "right": 384,
+          "top": 6,
+          "bottom": 112
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "webgl": true,
+        "effects": {
+          "cameraPerspective": false,
+          "cameraOrthographic": true,
+          "cameraMode": "orthographic-2d",
+          "cameraDepthRange": 0,
+          "snowParticles": 360,
+          "snowFieldWidth": 468,
+          "snowFieldHeight": 1012.8,
+          "skiTrackMaxSegments": 900
+        },
+        "centerPixel": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "pixels": {
+        "nonSnow": 14743,
+        "total": 329160,
+        "ratio": 0.0447897678940333
+      }
+    }
+  ]
+}
