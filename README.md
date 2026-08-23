@@ -1,3 +1,5 @@
+<img width="1124" height="976" alt="skifree" src="https://github.com/user-attachments/assets/eb0181b3-add3-4aad-96f2-6ba0265a8408" />
+
 # SkiFree — remake em Three.js
 
 **Jogue agora:** https://skifree2026.vercel.app/
